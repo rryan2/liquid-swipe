@@ -39,9 +39,13 @@ open class LiquidSwipeContainerController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
-        button.setImage(UIImage(named: "btnNext.png", in: Bundle.resourseBundle, compatibleWith: nil), for: .normal)
+        let size = CGSize(width:48, height:48)
+        let reSizedBtnImage = UIImage(named: "btnNext.png", in: Bundle.resourseBundle, compatibleWith: nil).reSizeImage(reSize: size)
+        button.setImage(reSizedBtnImage, for: .normal)
         return button
     }()
+    
+    
     
     private var initialHorRadius: CGFloat = 48.0
     private var maxHorRadius: CGFloat {
@@ -712,5 +716,16 @@ private extension LiquidSwipeContainerController {
             return view.bounds.width
         }
         return initialSideWidth + (view.bounds.width - initialSideWidth) * (progress - p1)/(p2 - p1)
+    }
+}
+
+extension UIImage {
+    func reSizeImage(reSize:CGSize)->UIImage {
+        //UIGraphicsBeginImageContext(reSize);
+        UIGraphicsBeginImageContextWithOptions(reSize,false,UIScreen.main.scale);
+        self.draw(in: CGRect(x: 0, y: 0, width: reSize.width, height: reSize.height));
+        let reSizeImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
+        UIGraphicsEndImageContext();
+        return reSizeImage;
     }
 }
