@@ -40,7 +40,7 @@ open class LiquidSwipeContainerController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
         let size = CGSize(width:48, height:48)
-        let reSizedBtnImage = UIImage(named: "btnNext.png", in: Bundle.resourseBundle, compatibleWith: nil).reSizeImage(reSize: size)
+        let reSizedBtnImage = UIImage(named: "btnNext.png", in: Bundle.resourseBundle, compatibleWith: nil)!.reSizeImage(reSize: size)
         button.setImage(reSizedBtnImage, for: .normal)
         return button
     }()
