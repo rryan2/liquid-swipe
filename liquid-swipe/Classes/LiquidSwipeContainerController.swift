@@ -17,6 +17,7 @@ public protocol LiquidSwipeContainerDataSource {
 public protocol LiquidSwipeContainerDelegate {
     func liquidSwipeContainer(_ liquidSwipeContainer: LiquidSwipeContainerController, willTransitionTo: UIViewController)
     func liquidSwipeContainer(_ liquidSwipeContainer: LiquidSwipeContainerController, didFinishTransitionTo: UIViewController, transitionCompleted: Bool)
+    
 }
 
 open class LiquidSwipeContainerController: UIViewController {
@@ -58,7 +59,7 @@ open class LiquidSwipeContainerController: UIViewController {
         return 15.0
     }
     private var initialWaveCenter: CGFloat  {
-        return view.bounds.height * 0.7167487685
+        return view.bounds.height * 0.85
     }
     private var animationStartTime: CFTimeInterval?
     private var animating: Bool = false
