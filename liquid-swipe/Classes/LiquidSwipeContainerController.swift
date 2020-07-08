@@ -39,7 +39,7 @@ open class LiquidSwipeContainerController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
-        let size = CGSize(width:48, height:48)
+        let size = CGSize(width:28, height:28)
         let reSizedBtnImage = UIImage(named: "btnNext.png", in: Bundle.resourseBundle, compatibleWith: nil)!.reSizeImage(reSize: size)
         button.setImage(reSizedBtnImage, for: .normal)
         return button
@@ -47,20 +47,21 @@ open class LiquidSwipeContainerController: UIViewController {
     
     
     
-    private var initialHorRadius: CGFloat = 48.0
+    private var initialHorRadius: CGFloat = 35.0
+    
     private var maxHorRadius: CGFloat {
         return view.bounds.width * 0.8
     }
     
-    private var initialVertRadius: CGFloat = 82.0
+    private var initialVertRadius: CGFloat = 75.0
     private var maxVertRadius: CGFloat {
         return view.bounds.height * 0.9
     }
     private var initialSideWidth: CGFloat {
-        if #available(iOS 11.0, *) {
-            return 15.0 + view.safeAreaInsets.right
-        }
-        return 15.0
+//        if #available(iOS 11.0, *) {
+//            return 0.0 + view.safeAreaInsets.right
+//        }
+        return 0.0
     }
     private var initialWaveCenter: CGFloat  {
         return view.bounds.height * 0.85
